@@ -10,6 +10,7 @@ migrate = Migrate()
 
 def create_app(testing=False):
     application = Flask(__name__)
+    application.url_map.strict_slashes = False
 
     if testing:
         application.config["TESTING"] = True
