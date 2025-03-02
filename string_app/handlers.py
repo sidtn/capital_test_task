@@ -33,7 +33,7 @@ def get_strings():
 
 @bp.route("/strings/<int:id>", methods=["GET"])
 def get_string(id):
-    string = StringModel.session.get(id)
+    string = StringModel.query.get(id)
     if not string:
         return jsonify({"error": "String not found"}), 404
     return jsonify({"id": string.id, "value": string.value})
